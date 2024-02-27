@@ -33,12 +33,10 @@ class URLService:
             self.session.commit()
         return new
 
-
     def create(self, url: str, task_id: int):
         url_object = URL(old_url=url, task_id=task_id)
         self.session.add(url_object)
         self.session.flush()
-        print(url_object.id)
         if self.autocommit:
             self.session.commit()
         return url_object
